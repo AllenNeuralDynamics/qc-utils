@@ -7,42 +7,36 @@
 ![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)
 ![Python](https://img.shields.io/badge/python->=3.10-blue?logo=python)
 
-## Usage
- - To use this template, click the green `Use this template` button and `Create new repository`.
- - After github initially creates the new repository, please wait an extra minute for the initialization scripts to finish organizing the repo.
- - To enable the automatic semantic version increments: in the repository go to `Settings` and `Collaborators and teams`. Click the green `Add people` button. Add `svc-aindscicomp` as a collaborator with "write" role. Modify the file in `.github/workflows/tag_and_publish.yml` by removing the if statement in line 67. The semantic version will now be incremented every time a code is committed into the main branch.
- - To publish to PyPI, first submit a request to the [Scientific Computing issue tracker](https://github.com/AllenNeuralDynamics/aind-scientific-computing/issues)
- to have the repository added as a Trusted Publisher for PyPI. Please specify the repository name (and desired PyPI package name if different).
- After the repository is added as a Trusted Publisher, enable semantic versioning and remove the if statement in line 73 in `.github/workflows/tag_and_publish.yml`. The code will now be published to PyPI every time the code is committed into the main branch.
- - The `.github/workflows/test_and_lint.yml` file will run automated tests and style checks every time a Pull Request is opened. If the checks are undesired, the `test_and_lint.yml` can be deleted. The strictness of the code coverage level, etc., can be modified by altering the configurations in the `pyproject.toml` file and the `.flake8` file.
- - Please make any necessary updates to the README.md and CITATION.cff files
+Shared, general-purpose quality control functions for AIND data processing pipelines.
 
-## Level of Support
-Please indicate a level of support:
- - [ ] Supported: We are releasing this code to the public as a tool we expect others to use. Issues are welcomed, and we expect to address them promptly; pull requests will be vetted by our staff before inclusion.
- - [ ] Occasional updates: We are planning on occasional updating this tool with no fixed schedule. Community involvement is encouraged through both issues and pull requests.
- - [ ] Unsupported: We are not currently supporting this code, but simply releasing it to the community AS IS but are not able to provide any guarantees of support. The community is welcome to submit issues, but you should not expect an active response.
+`qc-utils` is a central home for quality control logic that is common across
+platforms and pipelines. The goal is to maintain QC functions in one place so
+that they can be imported by other libraries rather than being re-implemented in
+many repositories.
 
-## Release Status
-GitHub's tags and Release features can be used to indicate a Release status.
-
- - Stable: v1.0.0 and above. Ready for production.
- - Beta:  v0.x.x or indicated in the tag. Ready for beta testers and early adopters.
- - Alpha: v0.x.x or indicated in the tag. Still in early development.
+> **Status:** Early development. The library is just getting started and
+> contributions are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md) to get involved.
 
 ## Installation
-To use the software, in the root directory, run
+To use the library, in the root directory run
 ```bash
 pip install -e .
 ```
 
-To develop the code, run
+To set up a development environment, run
 ```bash
 pip install -e . --group dev
 ```
-Note: --group flag is available only in pip versions >=25.1
+Note: the `--group` flag is available only in pip versions >=25.1.
 
 Alternatively, if using [uv](https://docs.astral.sh/uv/), run
 ```bash
 uv sync
 ```
+
+## Usage
+QC functions and examples will be documented here as they are added.
+
+## Contributing
+Contributions are welcome. Please see [CONTRIBUTING.md](CONTRIBUTING.md) for
+testing, linting, and pull request guidelines.
