@@ -59,7 +59,7 @@ def fiber_implant_qc(
                         modality=Modality.FIB,
                         stage=Stage.PROCESSING,
                         value={"AP": None, "DV": None, "LR": None},
-                        description=(f"CCF location for fiber implant {fiber_name}"),
+                        description=(f"CCF (25um) location for fiber implant {fiber_name}. Coordinate system is A->+P, D->+V, L->+R"),
                         reference=reference,
                         tags=tags or {},
                         status_history=[
