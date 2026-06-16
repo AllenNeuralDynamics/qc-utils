@@ -1,6 +1,7 @@
 """Tests for qc_utils.spim.fib_utils."""
 
 import json
+import unittest
 from pathlib import Path
 from unittest.mock import patch
 
@@ -36,7 +37,7 @@ NO_FIBER_PROCEDURES_JSON = json.dumps(
 )
 
 
-class TestFiberImplantQc:
+class TestFiberImplantQc(unittest.TestCase):
     """Tests for fiber_implant_qc."""
 
     @patch("aind_data_schema.core.quality_control.QualityControl" ".write_standard_file")
