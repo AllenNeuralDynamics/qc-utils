@@ -64,29 +64,6 @@ jobs:
         add: '["README.md"]'
   tag:
     needs: update_badges
-    if: ${{github.event.repository.name == 'aind-library-template'}}
     uses: AllenNeuralDynamics/.github/.github/workflows/release-bump-version-uv.yml@main
     secrets:
       repo-token: ${{ secrets.SERVICE_TOKEN }}
-  publish:
-    needs: tag
-    if: false
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      # IMPORTANT: this permission is mandatory for Trusted Publishing
-      id-token: write
-    steps:
-      - uses: actions/checkout@v6
-      - name: Pull latest changes
-        run: git pull origin main
-      - name: Set up Python 3.11
-        uses: astral-sh/setup-uv@v7
-        with:
-          python-version: '3.11'
-      - name: Build and validate package
-        run: |
-          uv build
-          uvx twine check dist/*
-      - name: Publish on PyPI
-        uses: pypa/gh-action-pypi-publish@release/v1
