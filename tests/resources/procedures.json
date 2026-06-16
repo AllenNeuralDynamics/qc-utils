@@ -1,0 +1,796 @@
+{
+    "object_type": "Procedures",
+    "describedBy": "https://raw.githubusercontent.com/AllenNeuralDynamics/aind-data-schema/main/src/aind_data_schema/core/procedures.py",
+    "schema_version": "2.2.1",
+    "subject_id": "854145",
+    "subject_procedures": [
+        {
+            "object_type": "Surgery",
+            "protocol_id": "dx.doi.org/10.17504/protocols.io.kqdg392o7g25/v2",
+            "start_date": "2026-04-21",
+            "experimenters": [
+                "NSB-3543"
+            ],
+            "ethics_review_id": "2414",
+            "animal_weight_prior": 26.6,
+            "animal_weight_post": 28.6,
+            "weight_unit": "gram",
+            "anaesthesia": {
+                "object_type": "Anaesthetic",
+                "anaesthetic_type": "isoflurane",
+                "duration": 150,
+                "duration_unit": "minute",
+                "level": 1.5
+            },
+            "workstation_id": "SWS 2",
+            "coordinate_system": null,
+            "measured_coordinates": {
+                "Bregma": {
+                    "object_type": "Translation",
+                    "translation": [
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                "Lambda": {
+                    "object_type": "Translation",
+                    "translation": [
+                        -4.335,
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            "procedures": [
+                {
+                    "object_type": "Headframe",
+                    "protocol_id": null,
+                    "headframe_type": "AI Straight bar",
+                    "headframe_part_number": "unknown",
+                    "headframe_material": null,
+                    "well_part_number": null,
+                    "well_type": "No Well"
+                },
+                {
+                    "object_type": "Brain injection",
+                    "protocol_id": null,
+                    "injection_materials": [
+                        {
+                            "object_type": "Viral material",
+                            "name": "AiP32205-pAAV-hSyn-GRAB-5HT3.0-myc-WPRE",
+                            "tars_identifiers": {
+                                "object_type": "Tars virus identifiers",
+                                "virus_tars_id": "VIR32205_PHPeB",
+                                "plasmid_tars_alias": [
+                                    "AiP32205"
+                                ],
+                                "prep_lot_number": "VT7925G",
+                                "prep_date": "2024-08-30",
+                                "prep_type": "Purified",
+                                "prep_protocol": "SOP#VC003"
+                            },
+                            "addgene_id": {
+                                "name": "AiP32205-pAAV-hSyn-GRAB-5HT3.0-myc-WPRE",
+                                "abbreviation": null,
+                                "registry": "Addgene (ADDGENE)",
+                                "registry_identifier": null
+                            },
+                            "titer": 2500000000000,
+                            "titer_unit": "gc/mL"
+                        },
+                        {
+                            "object_type": "Viral material",
+                            "name": "AiP32024-pND-pAAV-hSyn-GRAB-rDA3m-HA-WPRE",
+                            "tars_identifiers": {
+                                "object_type": "Tars virus identifiers",
+                                "virus_tars_id": "VIR32024_PHPeB",
+                                "plasmid_tars_alias": [
+                                    "AiP32024"
+                                ],
+                                "prep_lot_number": "VT6553G",
+                                "prep_date": "2023-12-21",
+                                "prep_type": "Purified",
+                                "prep_protocol": "SOP#VC003"
+                            },
+                            "addgene_id": {
+                                "name": "AiP32024-pND-pAAV-hSyn-GRAB-rDA3m-HA-WPRE",
+                                "abbreviation": null,
+                                "registry": "Addgene (ADDGENE)",
+                                "registry_identifier": null
+                            },
+                            "titer": 2500000000000,
+                            "titer_unit": "gc/mL"
+                        }
+                    ],
+                    "targeted_structure": {
+                        "atlas": "CCFv3",
+                        "name": "Nucleus accumbens",
+                        "acronym": "ACB",
+                        "id": "56"
+                    },
+                    "relative_position": [
+                        "Left"
+                    ],
+                    "dynamics": [
+                        {
+                            "object_type": "Injection dynamics",
+                            "profile": "Bolus",
+                            "volume": 150,
+                            "volume_unit": "nanoliter",
+                            "duration": null,
+                            "duration_unit": "minute",
+                            "injection_current": null,
+                            "injection_current_unit": null,
+                            "alternating_current": null
+                        }
+                    ],
+                    "coordinate_system_name": "BREGMA_ARID",
+                    "coordinates": [
+                        [
+                            {
+                                "object_type": "Translation",
+                                "translation": [
+                                    1,
+                                    -1.1,
+                                    0,
+                                    4.2
+                                ]
+                            },
+                            {
+                                "object_type": "Rotation",
+                                "angles": [
+                                    5,
+                                    0,
+                                    0
+                                ],
+                                "angles_unit": "degrees"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "object_type": "Probe implant",
+                    "protocol_id": "unknown",
+                    "implanted_device": {
+                        "object_type": "Fiber probe",
+                        "name": "Fiber 0",
+                        "serial_number": null,
+                        "manufacturer": {
+                            "name": "Neurophotometrics",
+                            "abbreviation": null,
+                            "registry": null,
+                            "registry_identifier": null
+                        },
+                        "model": null,
+                        "additional_settings": {},
+                        "notes": null,
+                        "core_diameter": "200",
+                        "core_diameter_unit": "micrometer",
+                        "numerical_aperture": "0.37",
+                        "ferrule_material": "Ceramic",
+                        "active_length": null,
+                        "total_length": "4.5",
+                        "length_unit": "millimeter"
+                    },
+                    "device_config": {
+                        "object_type": "Probe config",
+                        "device_name": "Fiber 0",
+                        "primary_targeted_structure": {
+                            "atlas": "CCFv3",
+                            "name": "Nucleus accumbens",
+                            "acronym": "ACB",
+                            "id": "56"
+                        },
+                        "other_targeted_structure": null,
+                        "atlas_coordinate": null,
+                        "coordinate_system": {
+                            "object_type": "Coordinate system",
+                            "name": "MPM_MANIP_RFB",
+                            "origin": "Tip",
+                            "axes": [
+                                {
+                                    "object_type": "Axis",
+                                    "name": "X",
+                                    "direction": "Left_to_right"
+                                },
+                                {
+                                    "object_type": "Axis",
+                                    "name": "Y",
+                                    "direction": "Back_to_front"
+                                },
+                                {
+                                    "object_type": "Axis",
+                                    "name": "Z",
+                                    "direction": "Up_to_down"
+                                }
+                            ],
+                            "axis_unit": "millimeter"
+                        },
+                        "transform": [
+                            {
+                                "object_type": "Translation",
+                                "translation": [
+                                    1,
+                                    -1.1,
+                                    0,
+                                    4.1
+                                ]
+                            },
+                            {
+                                "object_type": "Rotation",
+                                "angles": [
+                                    5,
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "angles_unit": "degrees"
+                            }
+                        ],
+                        "dye": null,
+                        "notes": null
+                    }
+                },
+                {
+                    "object_type": "Brain injection",
+                    "protocol_id": null,
+                    "injection_materials": [
+                        {
+                            "object_type": "Viral material",
+                            "name": "AiP32205-pAAV-hSyn-GRAB-5HT3.0-myc-WPRE",
+                            "tars_identifiers": {
+                                "object_type": "Tars virus identifiers",
+                                "virus_tars_id": "VIR32205_PHPeB",
+                                "plasmid_tars_alias": [
+                                    "AiP32205"
+                                ],
+                                "prep_lot_number": "VT7925G",
+                                "prep_date": "2024-08-30",
+                                "prep_type": "Purified",
+                                "prep_protocol": "SOP#VC003"
+                            },
+                            "addgene_id": {
+                                "name": "AiP32205-pAAV-hSyn-GRAB-5HT3.0-myc-WPRE",
+                                "abbreviation": null,
+                                "registry": "Addgene (ADDGENE)",
+                                "registry_identifier": null
+                            },
+                            "titer": 2500000000000,
+                            "titer_unit": "gc/mL"
+                        },
+                        {
+                            "object_type": "Viral material",
+                            "name": "AiP32024-pND-pAAV-hSyn-GRAB-rDA3m-HA-WPRE",
+                            "tars_identifiers": {
+                                "object_type": "Tars virus identifiers",
+                                "virus_tars_id": "VIR32024_PHPeB",
+                                "plasmid_tars_alias": [
+                                    "AiP32024"
+                                ],
+                                "prep_lot_number": "VT6553G",
+                                "prep_date": "2023-12-21",
+                                "prep_type": "Purified",
+                                "prep_protocol": "SOP#VC003"
+                            },
+                            "addgene_id": {
+                                "name": "AiP32024-pND-pAAV-hSyn-GRAB-rDA3m-HA-WPRE",
+                                "abbreviation": null,
+                                "registry": "Addgene (ADDGENE)",
+                                "registry_identifier": null
+                            },
+                            "titer": 2500000000000,
+                            "titer_unit": "gc/mL"
+                        }
+                    ],
+                    "targeted_structure": {
+                        "atlas": "CCFv3",
+                        "name": "Nucleus accumbens",
+                        "acronym": "ACB",
+                        "id": "56"
+                    },
+                    "relative_position": [
+                        "Right"
+                    ],
+                    "dynamics": [
+                        {
+                            "object_type": "Injection dynamics",
+                            "profile": "Bolus",
+                            "volume": 150,
+                            "volume_unit": "nanoliter",
+                            "duration": null,
+                            "duration_unit": "minute",
+                            "injection_current": null,
+                            "injection_current_unit": null,
+                            "alternating_current": null
+                        }
+                    ],
+                    "coordinate_system_name": "BREGMA_ARID",
+                    "coordinates": [
+                        [
+                            {
+                                "object_type": "Translation",
+                                "translation": [
+                                    1,
+                                    1.1,
+                                    0,
+                                    4.2
+                                ]
+                            },
+                            {
+                                "object_type": "Rotation",
+                                "angles": [
+                                    5,
+                                    0,
+                                    0
+                                ],
+                                "angles_unit": "degrees"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "object_type": "Probe implant",
+                    "protocol_id": "unknown",
+                    "implanted_device": {
+                        "object_type": "Fiber probe",
+                        "name": "Fiber 1",
+                        "serial_number": null,
+                        "manufacturer": {
+                            "name": "Neurophotometrics",
+                            "abbreviation": null,
+                            "registry": null,
+                            "registry_identifier": null
+                        },
+                        "model": null,
+                        "additional_settings": {},
+                        "notes": null,
+                        "core_diameter": "200",
+                        "core_diameter_unit": "micrometer",
+                        "numerical_aperture": "0.37",
+                        "ferrule_material": "Ceramic",
+                        "active_length": null,
+                        "total_length": "4.5",
+                        "length_unit": "millimeter"
+                    },
+                    "device_config": {
+                        "object_type": "Probe config",
+                        "device_name": "Fiber 1",
+                        "primary_targeted_structure": {
+                            "atlas": "CCFv3",
+                            "name": "Nucleus accumbens",
+                            "acronym": "ACB",
+                            "id": "56"
+                        },
+                        "other_targeted_structure": null,
+                        "atlas_coordinate": null,
+                        "coordinate_system": {
+                            "object_type": "Coordinate system",
+                            "name": "MPM_MANIP_RFB",
+                            "origin": "Tip",
+                            "axes": [
+                                {
+                                    "object_type": "Axis",
+                                    "name": "X",
+                                    "direction": "Left_to_right"
+                                },
+                                {
+                                    "object_type": "Axis",
+                                    "name": "Y",
+                                    "direction": "Back_to_front"
+                                },
+                                {
+                                    "object_type": "Axis",
+                                    "name": "Z",
+                                    "direction": "Up_to_down"
+                                }
+                            ],
+                            "axis_unit": "millimeter"
+                        },
+                        "transform": [
+                            {
+                                "object_type": "Translation",
+                                "translation": [
+                                    1,
+                                    1.1,
+                                    0,
+                                    4.1
+                                ]
+                            },
+                            {
+                                "object_type": "Rotation",
+                                "angles": [
+                                    5,
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "angles_unit": "degrees"
+                            }
+                        ],
+                        "dye": null,
+                        "notes": null
+                    }
+                },
+                {
+                    "object_type": "Brain injection",
+                    "protocol_id": null,
+                    "injection_materials": [
+                        {
+                            "object_type": "Viral material",
+                            "name": "AiP32205-pAAV-hSyn-GRAB-5HT3.0-myc-WPRE",
+                            "tars_identifiers": {
+                                "object_type": "Tars virus identifiers",
+                                "virus_tars_id": "VIR32205_PHPeB",
+                                "plasmid_tars_alias": [
+                                    "AiP32205"
+                                ],
+                                "prep_lot_number": "VT7925G",
+                                "prep_date": "2024-08-30",
+                                "prep_type": "Purified",
+                                "prep_protocol": "SOP#VC003"
+                            },
+                            "addgene_id": {
+                                "name": "AiP32205-pAAV-hSyn-GRAB-5HT3.0-myc-WPRE",
+                                "abbreviation": null,
+                                "registry": "Addgene (ADDGENE)",
+                                "registry_identifier": null
+                            },
+                            "titer": 2500000000000,
+                            "titer_unit": "gc/mL"
+                        },
+                        {
+                            "object_type": "Viral material",
+                            "name": "AiP32024-pND-pAAV-hSyn-GRAB-rDA3m-HA-WPRE",
+                            "tars_identifiers": {
+                                "object_type": "Tars virus identifiers",
+                                "virus_tars_id": "VIR32024_PHPeB",
+                                "plasmid_tars_alias": [
+                                    "AiP32024"
+                                ],
+                                "prep_lot_number": "VT6553G",
+                                "prep_date": "2023-12-21",
+                                "prep_type": "Purified",
+                                "prep_protocol": "SOP#VC003"
+                            },
+                            "addgene_id": {
+                                "name": "AiP32024-pND-pAAV-hSyn-GRAB-rDA3m-HA-WPRE",
+                                "abbreviation": null,
+                                "registry": "Addgene (ADDGENE)",
+                                "registry_identifier": null
+                            },
+                            "titer": 2500000000000,
+                            "titer_unit": "gc/mL"
+                        }
+                    ],
+                    "targeted_structure": {
+                        "atlas": "CCFv3",
+                        "name": "Piriform area",
+                        "acronym": "PIR",
+                        "id": "961"
+                    },
+                    "relative_position": [
+                        "Left"
+                    ],
+                    "dynamics": [
+                        {
+                            "object_type": "Injection dynamics",
+                            "profile": "Bolus",
+                            "volume": 200,
+                            "volume_unit": "nanoliter",
+                            "duration": null,
+                            "duration_unit": "minute",
+                            "injection_current": null,
+                            "injection_current_unit": null,
+                            "alternating_current": null
+                        }
+                    ],
+                    "coordinate_system_name": "BREGMA_ARID",
+                    "coordinates": [
+                        [
+                            {
+                                "object_type": "Translation",
+                                "translation": [
+                                    -1.8,
+                                    -3.6,
+                                    0,
+                                    3.2
+                                ]
+                            },
+                            {
+                                "object_type": "Rotation",
+                                "angles": [
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "angles_unit": "degrees"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "object_type": "Probe implant",
+                    "protocol_id": "unknown",
+                    "implanted_device": {
+                        "object_type": "Fiber probe",
+                        "name": "Fiber 2",
+                        "serial_number": null,
+                        "manufacturer": {
+                            "name": "Neurophotometrics",
+                            "abbreviation": null,
+                            "registry": null,
+                            "registry_identifier": null
+                        },
+                        "model": null,
+                        "additional_settings": {},
+                        "notes": null,
+                        "core_diameter": "200",
+                        "core_diameter_unit": "micrometer",
+                        "numerical_aperture": "0.37",
+                        "ferrule_material": "Ceramic",
+                        "active_length": null,
+                        "total_length": "3.5",
+                        "length_unit": "millimeter"
+                    },
+                    "device_config": {
+                        "object_type": "Probe config",
+                        "device_name": "Fiber 2",
+                        "primary_targeted_structure": {
+                            "atlas": "CCFv3",
+                            "name": "Piriform area",
+                            "acronym": "PIR",
+                            "id": "961"
+                        },
+                        "other_targeted_structure": null,
+                        "atlas_coordinate": null,
+                        "coordinate_system": {
+                            "object_type": "Coordinate system",
+                            "name": "MPM_MANIP_RFB",
+                            "origin": "Tip",
+                            "axes": [
+                                {
+                                    "object_type": "Axis",
+                                    "name": "X",
+                                    "direction": "Left_to_right"
+                                },
+                                {
+                                    "object_type": "Axis",
+                                    "name": "Y",
+                                    "direction": "Back_to_front"
+                                },
+                                {
+                                    "object_type": "Axis",
+                                    "name": "Z",
+                                    "direction": "Up_to_down"
+                                }
+                            ],
+                            "axis_unit": "millimeter"
+                        },
+                        "transform": [
+                            {
+                                "object_type": "Translation",
+                                "translation": [
+                                    -1.8,
+                                    -3.6,
+                                    0,
+                                    3.1
+                                ]
+                            },
+                            {
+                                "object_type": "Rotation",
+                                "angles": [
+                                    0,
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "angles_unit": "degrees"
+                            }
+                        ],
+                        "dye": null,
+                        "notes": null
+                    }
+                },
+                {
+                    "object_type": "Brain injection",
+                    "protocol_id": null,
+                    "injection_materials": [
+                        {
+                            "object_type": "Viral material",
+                            "name": "(v1v2 upgrade) No injection material provided",
+                            "tars_identifiers": null,
+                            "addgene_id": null,
+                            "titer": null,
+                            "titer_unit": "gc/mL"
+                        }
+                    ],
+                    "targeted_structure": {
+                        "atlas": "CCFv3",
+                        "name": "Piriform area",
+                        "acronym": "PIR",
+                        "id": "961"
+                    },
+                    "relative_position": [
+                        "Right"
+                    ],
+                    "dynamics": [
+                        {
+                            "object_type": "Injection dynamics",
+                            "profile": "Bolus",
+                            "volume": 200,
+                            "volume_unit": "nanoliter",
+                            "duration": null,
+                            "duration_unit": "minute",
+                            "injection_current": null,
+                            "injection_current_unit": null,
+                            "alternating_current": null
+                        }
+                    ],
+                    "coordinate_system_name": "BREGMA_ARID",
+                    "coordinates": [
+                        [
+                            {
+                                "object_type": "Translation",
+                                "translation": [
+                                    -1.8,
+                                    3.6,
+                                    0,
+                                    3.2
+                                ]
+                            },
+                            {
+                                "object_type": "Rotation",
+                                "angles": [
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "angles_unit": "degrees"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "object_type": "Probe implant",
+                    "protocol_id": "unknown",
+                    "implanted_device": {
+                        "object_type": "Fiber probe",
+                        "name": "Fiber 3",
+                        "serial_number": null,
+                        "manufacturer": {
+                            "name": "Neurophotometrics",
+                            "abbreviation": null,
+                            "registry": null,
+                            "registry_identifier": null
+                        },
+                        "model": null,
+                        "additional_settings": {},
+                        "notes": null,
+                        "core_diameter": "200",
+                        "core_diameter_unit": "micrometer",
+                        "numerical_aperture": "0.37",
+                        "ferrule_material": "Ceramic",
+                        "active_length": null,
+                        "total_length": "3.5",
+                        "length_unit": "millimeter"
+                    },
+                    "device_config": {
+                        "object_type": "Probe config",
+                        "device_name": "Fiber 3",
+                        "primary_targeted_structure": {
+                            "atlas": "CCFv3",
+                            "name": "Piriform area",
+                            "acronym": "PIR",
+                            "id": "961"
+                        },
+                        "other_targeted_structure": null,
+                        "atlas_coordinate": null,
+                        "coordinate_system": {
+                            "object_type": "Coordinate system",
+                            "name": "MPM_MANIP_RFB",
+                            "origin": "Tip",
+                            "axes": [
+                                {
+                                    "object_type": "Axis",
+                                    "name": "X",
+                                    "direction": "Left_to_right"
+                                },
+                                {
+                                    "object_type": "Axis",
+                                    "name": "Y",
+                                    "direction": "Back_to_front"
+                                },
+                                {
+                                    "object_type": "Axis",
+                                    "name": "Z",
+                                    "direction": "Up_to_down"
+                                }
+                            ],
+                            "axis_unit": "millimeter"
+                        },
+                        "transform": [
+                            {
+                                "object_type": "Translation",
+                                "translation": [
+                                    -1.8,
+                                    3.6,
+                                    0,
+                                    3.1
+                                ]
+                            },
+                            {
+                                "object_type": "Rotation",
+                                "angles": [
+                                    0,
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "angles_unit": "degrees"
+                            }
+                        ],
+                        "dye": null,
+                        "notes": null
+                    }
+                }
+            ],
+            "notes": null
+        },
+        {
+            "object_type": "Water restriction",
+            "ethics_review_id": "unknown",
+            "target_fraction_weight": 85,
+            "target_fraction_weight_unit": "percent",
+            "minimum_water_per_day": 1,
+            "minimum_water_per_day_unit": "milliliter",
+            "baseline_weight": 29.37,
+            "weight_unit": "gram",
+            "start_date": "2026-05-15",
+            "end_date": null
+        },
+        {
+            "object_type": "Water restriction",
+            "ethics_review_id": "unknown",
+            "target_fraction_weight": 85,
+            "target_fraction_weight_unit": "percent",
+            "minimum_water_per_day": 1,
+            "minimum_water_per_day_unit": "milliliter",
+            "baseline_weight": 29.37,
+            "weight_unit": "gram",
+            "start_date": "2026-05-08",
+            "end_date": "2026-05-13"
+        }
+    ],
+    "specimen_procedures": [],
+    "coordinate_system": {
+        "object_type": "Coordinate system",
+        "name": "BREGMA_ARID",
+        "origin": "Bregma",
+        "axes": [
+            {
+                "object_type": "Axis",
+                "name": "AP",
+                "direction": "Posterior_to_anterior"
+            },
+            {
+                "object_type": "Axis",
+                "name": "ML",
+                "direction": "Left_to_right"
+            },
+            {
+                "object_type": "Axis",
+                "name": "SI",
+                "direction": "Superior_to_inferior"
+            },
+            {
+                "object_type": "Axis",
+                "name": "Depth",
+                "direction": "Up_to_down"
+            }
+        ],
+        "axis_unit": "millimeter"
+    },
+    "notes": null
+}
