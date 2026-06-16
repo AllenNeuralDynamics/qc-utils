@@ -27,14 +27,13 @@ dev = [
     'flake8',
     'interrogate',
     'isort',
-    'pytest',
 ]
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.black]
-line-length = 79
+line-length = 120
 target_version = ['py310']
 exclude = '''
 

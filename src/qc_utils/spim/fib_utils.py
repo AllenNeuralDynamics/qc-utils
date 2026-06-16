@@ -44,18 +44,14 @@ def fiber_implant_qc(
     QualityControl
         The constructed QualityControl object.
     """
-    procedures = Procedures.model_validate_json(
-        Path(input_path).read_text()
-    )
+    procedures = Procedures.model_validate_json(Path(input_path).read_text())
 
     metrics = []
     for subject_procedure in procedures.subject_procedures:
         if not isinstance(subject_procedure, Surgery):
             continue
         for proc in subject_procedure.procedures:
-            if isinstance(proc, ProbeImplant) and isinstance(
-                proc.implanted_device, FiberProbe
-            ):
+            if isinstance(proc, ProbeImplant) and isinstance(proc.implanted_device, FiberProbe):
                 fiber_name = proc.implanted_device.name
                 metrics.append(
                     QCMetric(
@@ -63,9 +59,7 @@ def fiber_implant_qc(
                         modality=Modality.FIB,
                         stage=Stage.PROCESSING,
                         value={"AP": None, "DV": None, "LR": None},
-                        description=(
-                            f"CCF location for fiber implant {fiber_name}"
-                        ),
+                        description=(f"CCF location for fiber implant {fiber_name}"),
                         reference=reference,
                         tags=tags or {},
                         status_history=[
