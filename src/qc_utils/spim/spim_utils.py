@@ -163,6 +163,6 @@ def spim_qc(
         ),
     ]
 
-    qc = QualityControl(metrics=metrics, default_grouping=[])
-    qc.write_standard_file(output_directory=Path(output_path))
+    qc = QualityControl(metrics=metrics, default_grouping=["evaluation", "channel"])
+    qc.write_standard_file(suffix="spim", output_directory=Path(output_path))
     return qc

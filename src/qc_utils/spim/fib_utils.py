@@ -75,6 +75,6 @@ def fiber_implant_qc(
                     )
                 )
 
-    qc = QualityControl(metrics=metrics, default_grouping=[])
-    qc.write_standard_file(output_directory=Path(output_path))
+    qc = QualityControl(metrics=metrics, default_grouping=["evaluation"])
+    qc.write_standard_file(suffix="fib", output_directory=Path(output_path))
     return qc
