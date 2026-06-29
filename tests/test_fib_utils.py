@@ -59,7 +59,7 @@ class TestFiberImplantQc(unittest.TestCase):
         assert "Fiber 2 CCF location" in metric_names
         assert "Fiber 3 CCF location" in metric_names
 
-        mock_write.assert_called_once_with(output_directory=Path("/output"))
+        mock_write.assert_called_once_with(suffix="fib", output_directory=Path("/output"))
 
     @patch("aind_data_schema.core.quality_control.QualityControl" ".write_standard_file")
     def test_with_fiber_implants_metric_fields(self, mock_write):
@@ -77,7 +77,7 @@ class TestFiberImplantQc(unittest.TestCase):
 
         metric = qc.metrics[0]
         assert metric.modality == Modality.FIB
-        assert metric.stage == Stage.PROCESSING
+        assert metric.stage == Stage.RAW
         assert metric.value == {"AP": None, "DV": None, "LR": None}
         assert len(metric.status_history) == 1
         assert metric.status_history[0].status == Status.PENDING
@@ -94,7 +94,7 @@ class TestFiberImplantQc(unittest.TestCase):
             )
 
         assert qc.metrics == []
-        mock_write.assert_called_once_with(output_directory=Path("/output"))
+        mock_write.assert_called_once_with(suffix="fib", output_directory=Path("/output"))
 
     @patch("aind_data_schema.core.quality_control.QualityControl" ".write_standard_file")
     def test_returns_quality_control_instance(self, mock_write):
@@ -117,7 +117,7 @@ class TestFiberImplantQc(unittest.TestCase):
         with patch("pathlib.Path.read_text", return_value=NO_FIBER_PROCEDURES_JSON):
             fiber_implant_qc(Path("procedures.json"), output)
 
-        mock_write.assert_called_once_with(output_directory=output)
+        mock_write.assert_called_once_with(suffix="fib", output_directory=output)
 
     @patch("aind_data_schema.core.quality_control.QualityControl" ".write_standard_file")
     def test_reference_and_tags_propagated(self, mock_write):
@@ -151,4 +151,4 @@ class TestFiberImplantQc(unittest.TestCase):
 
         for metric in qc.metrics:
             assert metric.reference is None
-            assert metric.tags == {}
+            assert metric.tags == {"evaluation": "procedures"}
