@@ -123,8 +123,9 @@ def spim_qc(
             modality=Modality.SPIM,
             stage=Stage.PROCESSING,
             description=(
-                "Pass when image tiles appear evenly illuminated. "
+                "Pass when image tiles appear evenly illuminated around tile corners. "
                 "Fail when image tiles are non-uniform or show vignetting."
+                "Note: this QC metric is independent of overall illumination issues."
             ),
             value=pass_fail.model_dump(),
             reference=reference,
