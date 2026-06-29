@@ -40,6 +40,7 @@ class TestMergeQualityControlFiles(unittest.TestCase):
         from aind_data_schema_models.modalities import Modality
 
         def _make_qc_json(metric_name: str) -> str:
+            """Create a QC JSON with a single metric named `metric_name`."""
             qc = QualityControl(
                 metrics=[
                     QCMetric(
