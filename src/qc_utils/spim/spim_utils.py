@@ -72,7 +72,7 @@ def spim_qc(
             value=good_sufficient_bad.model_dump(),
             reference=reference,
             status_history=[sp],
-            tags={},
+            tags={"evaluation": "image quality"},
         ),
     ]
 
@@ -81,7 +81,7 @@ def spim_qc(
             QCMetric(
                 name=f"{channel} brightness",
                 modality=Modality.SPIM,
-                stage=Stage.PROCESSING,
+                stage=Stage.RAW,
                 description=(
                     "Pass when image channel is of sufficient brightness to meet experimental "
                     "needs; i.e. signal is neither under nor oversaturated. Good channel "
@@ -95,7 +95,7 @@ def spim_qc(
                 value=good_sufficient_bad.model_dump(),
                 reference=reference,
                 status_history=[sp],
-                tags={"channel": channel},
+                tags={"evaluation": "image quality", "channel": channel},
             )
         )
 
@@ -103,7 +103,7 @@ def spim_qc(
         QCMetric(
             name="Tissue perfusion",
             modality=Modality.SPIM,
-            stage=Stage.PROCESSING,
+            stage=Stage.RAW,
             description=(
                 "Pass when tissue is sufficiently well-perfused and extracted to meet "
                 "experimental needs. Good tissue perfusion will preserve gross anatomical "
@@ -116,7 +116,7 @@ def spim_qc(
             value=good_sufficient_bad.model_dump(),
             reference=reference,
             status_history=[sp],
-            tags={},
+            tags={"evaluation": "image quality"},
         ),
         QCMetric(
             name="Flatfield correction",
@@ -129,7 +129,7 @@ def spim_qc(
             value=pass_fail.model_dump(),
             reference=reference,
             status_history=[sp],
-            tags={},
+            tags={"evaluation": "processing"},
         ),
         QCMetric(
             name="Image destriping",
@@ -145,7 +145,7 @@ def spim_qc(
             value=good_sufficient_bad.model_dump(),
             reference=reference,
             status_history=[sp],
-            tags={},
+            tags={"evaluation": "processing"},
         ),
         QCMetric(
             name="Image stitching",
@@ -159,7 +159,7 @@ def spim_qc(
             value=pass_fail.model_dump(),
             reference=reference,
             status_history=[sp],
-            tags={},
+            tags={"evaluation": "processing"},
         ),
     ]
 

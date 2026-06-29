@@ -57,14 +57,14 @@ def fiber_implant_qc(
                     QCMetric(
                         name=f"{fiber_name} CCF location",
                         modality=Modality.FIB,
-                        stage=Stage.PROCESSING,
+                        stage=Stage.RAW,
                         value={"AP": None, "DV": None, "LR": None},
                         description=(
                             f"CCF (25um) location for fiber implant {fiber_name}."
                             " Coordinate system is A->+P, D->+V, L->+R"
                         ),
                         reference=reference,
-                        tags=tags or {},
+                        tags=tags or {"evaluation": "procedures"},
                         status_history=[
                             QCStatus(
                                 evaluator="automated",
