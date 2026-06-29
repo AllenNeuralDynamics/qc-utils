@@ -59,20 +59,25 @@ class TestSpimQc(unittest.TestCase):
 
     @patch("aind_data_schema.core.quality_control.QualityControl.write_standard_file")
     def test_channel_brightness_metrics(self, mock_write):
-        """One brightness metric per channel with correct name and tag."""
+        """One brightness metric per channel with correct name and tags."""
         qc = spim_qc(Path("/output"), channels=CHANNELS)
         for channel in CHANNELS:
             metric = next((m for m in qc.metrics if m.name == f"{channel} brightness"), None)
             self.assertIsNotNone(metric, f"Missing metric for channel {channel}")
-            self.assertEqual(metric.tags, {"channel": channel})
+            self.assertEqual(metric.tags, {"evaluation": "image quality", "channel": channel})
 
     @patch("aind_data_schema.core.quality_control.QualityControl.write_standard_file")
     def test_modality_and_stage(self, mock_write):
-        """Every metric has SPIM modality and PROCESSING stage."""
+        """Every metric has SPIM modality; stage is RAW or PROCESSING depending on metric."""
+        raw_metrics = {"Tissue perfusion"} | {f"{c} brightness" for c in CHANNELS}
+        processing_metrics = {"Image and tissue quality", "Flatfield correction", "Image destriping", "Image stitching"}
         qc = spim_qc(Path("/output"), channels=CHANNELS)
         for metric in qc.metrics:
             self.assertEqual(metric.modality, Modality.SPIM)
-            self.assertEqual(metric.stage, Stage.PROCESSING)
+            if metric.name in raw_metrics:
+                self.assertEqual(metric.stage, Stage.RAW)
+            elif metric.name in processing_metrics:
+                self.assertEqual(metric.stage, Stage.PROCESSING)
 
     @patch("aind_data_schema.core.quality_control.QualityControl.write_standard_file")
     def test_status_history_pending(self, mock_write):
@@ -134,10 +139,10 @@ class TestSpimQc(unittest.TestCase):
 
     @patch("aind_data_schema.core.quality_control.QualityControl.write_standard_file")
     def test_output_path_passed_to_write(self, mock_write):
-        """write_standard_file is called with the correct output_path."""
+        """write_standard_file is called with the correct output_path and suffix."""
         output = Path("/my/custom/output/dir")
         spim_qc(output, channels=CHANNELS)
-        mock_write.assert_called_once_with(output_directory=output)
+        mock_write.assert_called_once_with(suffix="spim", output_directory=output)
 
     @patch("aind_data_schema.core.quality_control.QualityControl.write_standard_file")
     def test_write_called_exactly_once(self, mock_write):
