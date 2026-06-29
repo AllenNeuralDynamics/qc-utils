@@ -28,7 +28,7 @@ class TestMergeQualityControlFiles(unittest.TestCase):
         """A single valid file is returned as a QualityControl instance."""
         with tempfile.TemporaryDirectory() as tmp:
             _write_qc(Path(tmp), "quality_control.json")
-            result = merge_quality_control_files(Path(tmp), Path(tmp))
+            result = merge_quality_control_files([Path(tmp)], Path(tmp))
         self.assertIsInstance(result, QualityControl)
 
     @patch("aind_data_schema.core.quality_control.QualityControl.write_standard_file")
@@ -64,7 +64,7 @@ class TestMergeQualityControlFiles(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             _write_qc(Path(tmp), "quality_control_a.json", _make_qc_json("Metric A"))
             _write_qc(Path(tmp), "quality_control_b.json", _make_qc_json("Metric B"))
-            result = merge_quality_control_files(Path(tmp), Path(tmp))
+            result = merge_quality_control_files([Path(tmp)], Path(tmp))
 
         names = [m.name for m in result.metrics]
         self.assertIn("Metric A", names)
@@ -77,7 +77,7 @@ class TestMergeQualityControlFiles(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             _write_qc(Path(tmp), "quality_control_valid.json")
             _write_qc(Path(tmp), "quality_control_bad.json", "not json at all")
-            result = merge_quality_control_files(Path(tmp), Path(tmp))
+            result = merge_quality_control_files([Path(tmp)], Path(tmp))
         self.assertIsInstance(result, QualityControl)
 
     @patch("aind_data_schema.core.quality_control.QualityControl.write_standard_file")
@@ -85,7 +85,7 @@ class TestMergeQualityControlFiles(unittest.TestCase):
         """ValueError is raised when no valid files are found."""
         with tempfile.TemporaryDirectory() as tmp:
             with self.assertRaises(ValueError):
-                merge_quality_control_files(Path(tmp), Path(tmp))
+                merge_quality_control_files([Path(tmp)], Path(tmp))
 
     @patch("aind_data_schema.core.quality_control.QualityControl.write_standard_file")
     def test_no_valid_files_only_invalid_raises(self, mock_write):
@@ -93,7 +93,7 @@ class TestMergeQualityControlFiles(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             _write_qc(Path(tmp), "quality_control_bad.json", "{}")
             with self.assertRaises(ValueError):
-                merge_quality_control_files(Path(tmp), Path(tmp))
+                merge_quality_control_files([Path(tmp)], Path(tmp))
 
     @patch("aind_data_schema.core.quality_control.QualityControl.write_standard_file")
     def test_output_path_passed_to_write(self, mock_write):
@@ -101,7 +101,7 @@ class TestMergeQualityControlFiles(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             output = Path(tmp) / "out"
             _write_qc(Path(tmp), "quality_control.json")
-            merge_quality_control_files(Path(tmp), output)
+            merge_quality_control_files([Path(tmp)], output)
         mock_write.assert_called_once_with(output_directory=output)
 
     @patch("aind_data_schema.core.quality_control.QualityControl.write_standard_file")
@@ -110,7 +110,7 @@ class TestMergeQualityControlFiles(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             (Path(tmp) / "other.json").write_text(_EMPTY_QC_JSON)
             with self.assertRaises(ValueError):
-                merge_quality_control_files(Path(tmp), Path(tmp))
+                merge_quality_control_files([Path(tmp)], Path(tmp))
 
     @patch("aind_data_schema.core.quality_control.QualityControl.write_standard_file")
     def test_searches_recursively(self, mock_write):
@@ -119,5 +119,14 @@ class TestMergeQualityControlFiles(unittest.TestCase):
             subdir = Path(tmp) / "subdir"
             subdir.mkdir()
             _write_qc(subdir, "quality_control.json")
-            result = merge_quality_control_files(Path(tmp), Path(tmp))
+            result = merge_quality_control_files([Path(tmp)], Path(tmp))
+        self.assertIsInstance(result, QualityControl)
+
+    @patch("aind_data_schema.core.quality_control.QualityControl.write_standard_file")
+    def test_multiple_search_paths(self, mock_write):
+        """Files from multiple search paths are all collected and merged."""
+        with tempfile.TemporaryDirectory() as tmp_a, tempfile.TemporaryDirectory() as tmp_b:
+            _write_qc(Path(tmp_a), "quality_control.json")
+            _write_qc(Path(tmp_b), "quality_control.json")
+            result = merge_quality_control_files([Path(tmp_a), Path(tmp_b)], Path(tmp_a))
         self.assertIsInstance(result, QualityControl)
